@@ -1,0 +1,182 @@
+@extends('frontend.layout.master-layout')
+@section('content')
+<!--=========================================Slider======================================================-->
+@include('frontend/layout/content-slider')
+<style>
+    caption{
+        background:#b68d2a;
+        font-size:140%;
+        border-bottom:none;
+        padding:10px;
+        color: #fff;
+    }
+    .regent td{
+        padding: 10px 5px;
+    }
+    .vert {
+        height: 400px !important;
+    }
+    .vert .simply-scroll-clip{
+        height: 400px !important;
+    }
+    .display_head div{
+        font-size: 13px;
+        padding: 8px 2.7px;
+    }
+    .head_col5, .col5 {
+        width: 15%;
+    }
+    .head_col3, .head_col4, .col3, .col4 {
+        width: 12%;
+    }
+    .head_col1, .col1 {
+        width: 8%;
+    }
+    .head_col2, .col2 {
+        width: 21%;
+    }
+    #scroller div, #scroller div {
+        padding: 10px 3.4px;
+        font-size: 13px;
+    }
+</style>
+<!--=========================================Main Body====================================================-->
+<!--todo:sts changes-->
+
+                        <script type='text/javascript' src="{{asset('public/scroll/jquery.simplyscroll.js')}}"></script>
+                         <link href="{{asset('public/scroll/jquery.simplyscroll.css')}}" rel='stylesheet' type='text/css'>
+                        <script type="text/javascript">
+                            (function ($) {
+                                $(function () {
+                                    $("#scroller").simplyScroll({orientation: 'vertical', customClass: 'vert'});
+                                });
+                                $(function () {
+                                    $("#scroller2").simplyScroll({orientation: 'vertical', customClass: 'vert'});
+                                });
+                            })(jQuery);
+                        </script>
+<div class="BG-map">
+    <div class="BG-map-inner">
+        <div class="clearfix"></div>
+
+        <section id="intro-wrapper" class="mb0">
+            <div class="intro-inner-wrapper container">
+                <div class="min_height">
+                    <div class=""> 
+                        <div class="clearfix"></div>
+
+                            <div class="text-center flight_type">
+                                <h2 class="inter content-fade">International Flights</h2>
+                            </div>
+
+                        <div class="display_head">
+                            <div class="head_col1">Flight No</div>  
+                            <div class="head_col2">Day</div>  
+                            <div class="head_col3">From</div>  
+                            <div class="head_col3">To</div>  
+                            <div class="head_col4">Departure Time</div>  
+                            <div class="head_col4">Arrival Time</div>  
+                            <div class="head_col5">Status</div>  
+                        </div>
+                        <ul id="scroller">
+                            <?php
+                            if (!is_null($inn_data)) {
+                                $i = 1;
+                                foreach ($inn_data as $value) {
+                                    $i++;
+
+                                    $from_to = explode('to', $value->name);
+                                    ?>
+                                    <li class="<?php
+                                    if ($i % 2 == 0)
+                                        echo 'flight_even';
+                                    else
+                                        echo 'flight_odd'
+                                        ?>">
+                                        <div class="col1">{{$value->flight}}</div>
+                                        <div class="col2">{{$value->day}}</div>
+                                        <div class="col3">{{$from_to[0]}}</div>
+                                        <div class="col3">{{$from_to[1]}}</div>
+                                        <div class="col4">{{$value->dep_time}}</div>
+                                        <div class="col4">{{$value->arr_time}}</div>
+                                        <div class="col5"><?php if (!$value->flight_status)
+                                echo 'On Time';
+                            else
+                                echo $value->flight_status;
+                                    ?></div>
+                                    </li>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </ul>
+
+
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    
+                    <div class="clearfix"></div>
+                    <div class=""> 
+                        <div class="clearfix"></div>
+
+                            <div class="text-center flight_type">
+                                <h2 class="inter content-fade">Domestic Flights</h2>
+                            </div>
+
+                        <div class="display_head">
+                            <div class="head_col1">Flight No</div>  
+                            <div class="head_col2">Day</div>  
+                            <div class="head_col3">From</div>  
+                            <div class="head_col3">To</div>  
+                            <div class="head_col4">Departure Time</div>  
+                            <div class="head_col4">Arrival Time</div>  
+                            <div class="head_col5">Status</div>  
+                        </div>
+                        <ul id="scroller2">
+                            <?php
+                            if (!is_null($local_data)) {
+                                $i = 1;
+                                foreach ($local_data as $value) {
+                                    $i++;
+
+                                    $from_to = explode('to', $value->name);
+                                    ?>
+                                    <li class="<?php
+                                    if ($i % 2 == 0)
+                                        echo 'flight_even';
+                                    else
+                                        echo 'flight_odd'
+                                        ?>">
+                                        <div class="col1">{{$value->flight}}</div>
+                                        <div class="col2">{{$value->day}}</div>
+                                        <div class="col3">{{$from_to[0]}}</div>
+                                        <div class="col3">{{$from_to[1]}}</div>
+                                        <div class="col4">{{$value->dep_time}}</div>
+                                        <div class="col4">{{$value->arr_time}}</div>
+                                        <div class="col5"><?php if (!$value->flight_status)
+                                echo 'On Time';
+                            else
+                                echo $value->flight_status;
+                                    ?></div>
+                                    </li>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </ul>
+
+
+                    </div>
+                    <br/>
+                </div>
+            </div>
+        </section>
+
+
+
+    </div>
+</div>
+<!--=========================================End Main Body================================================-->
+@stop

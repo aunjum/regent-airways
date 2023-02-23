@@ -1,0 +1,107 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
+and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
+
+## 0.0.0 - 11 Oct 2017
+- Changelog added
+
+## 15-02-2018
+- Optimize slider image size
+- Removing page title with background image in requested pages -> Issue number 03
+- Removing moving effects from the website  -> Issue number 0.7
+    - Scrolling right to left effect above and within the slider
+    - Scrolling down to up effect in flight schedule.
+- Added this "all times are set in LT or local time" sentence in flight schedule page footer.  -> Issue number 09
+- Remove “fare chart” link from home page and inside sales menu  -> Issue number 10
+
+## 18-02-2018
+- fix js and resource link errors that shows in browser console
+- * http://devsxpress.com/regentairways/get_chat_not
+    Above url not found, so we comment the codes at
+    app/app/resources/views/admin/layout/master-layout.blade.php file line number 102
+
+## 19-02-2018
+    - add an image in The log page.
+
+## 01-03-2018
+    - add cdn links for css,js
+
+## 11-03-2018
+    - front-end content update. same as flyregent.com
+
+## 12-03-2018
+    - official addresses update
+
+## 14-03-2018
+   - Destination information post order change
+
+## 27-03-2018
+    - Leave a message form change in 3 pages
+    - Add message text box inside the leave a message form
+    - Add Google reCaptcha to every leave message form for better security
+    - Create database table named "chat" for leave a message
+    - Add CSRF token in admin panel form for leave a message reply
+    - Update docker compose file for app env variables setup to use mailing service[ for test we used mailtrap.io api]
+    - update app config for send e-mail from app
+    - add a row in "privileges" table and update values in "role" table for live chat menu permission for admin and super admin role users.
+
+## 29-03-2018
+    - Fare chart and corporate sales menu remove
+    - Office addresses order change to asc based on name
+
+
+## 01-04-2018
+    - Flight schedule update and view design change
+
+## 02-04-2018
+    - One flight schedule add for kolkata
+
+## 08-04-2018
+    - User upload resource storage settings change.
+    - Add support for both file storage system "local" and "cloud[s3] aws"
+    - Upload existing images to S3 AWS
+    - new changes are locally tested now we pushed changes to live server for another test.
+
+## 10-04-2018
+    - Hide RX picture link from footer
+
+## 17-04-2018
+    - Flight schedule update on Database
+    - Change HTML design for flight schedule show
+    - Holiday package update
+
+## 18-04-2018
+    - Change HTML design for flight schedule show
+    - Display holiday package css change
+    - Page title added on about pages
+    - Delete 2 slider
+    - change destination information both backend and front-end
+
+## 24-04-18
+    - flight search on home page 2 bug fixed
+
+## 09-05-18
+    - CTG and JSR spelling change
+
+## 10-05-18
+    - Fixed 5 bugs
+
+## 09-07-18
+    - Fixed 1 bug
+## 16-07-18
+    - added 3 api link for mobile app
+
+## 13-08-18
+    - css,jss minifyied
+    - fare chart remove
+    - menu background change
+    - sales office address design change
+    - sales office address google map added
+    - Google analytics code added
+    - Change address title
+
+## 19-08-18
+    - Js async loading
+

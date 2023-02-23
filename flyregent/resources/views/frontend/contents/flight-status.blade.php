@@ -1,0 +1,131 @@
+@extends('frontend.layout.master-layout')
+@section('content')
+    <!--=========================================Slider======================================================-->
+
+    @include('frontend/layout/content-slider')
+    <style>
+        caption{
+            background:#b68d2a;
+            font-size:140%;
+            border-bottom:none;
+            padding:10px;
+            color: #fff;
+        }
+        .regent td{
+            padding: 10px 5px;
+        }
+        .display_title{
+            color: #b68d2a;
+            font-size: 22px;
+            z-index: 99999;
+            font-weight: bold;
+            text-align: center;
+        }
+        .date_time{
+            color: #d00000;
+            margin-top: 8px;
+
+        }
+        .flip-clock-wrapper{
+            left: 33%;
+        }
+        .vert {
+            height: 400px !important;
+        }
+        .vert .simply-scroll-clip{
+            height: 400px !important;
+        }
+    </style>
+    <!--=========================================Main Body====================================================-->
+    <div class="BG-map">
+        <div class="BG-map-inner">
+            <div class="clearfix"></div>
+
+            <section id="intro-wrapper" class="mb0">
+                <div class="intro-inner-wrapper container">
+                    <div class="contents min_height">
+
+                        <div>
+
+                            <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery-simplyscroll/2.0.5/jquery.simplyscroll.min.js"></script>
+                            <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery-simplyscroll/2.0.5/jquery.simplyscroll.min.css" rel='stylesheet' type='text/css'>
+                            <script type="text/javascript">
+                                (function ($) {
+                                    $(function () {
+                                        $("#scroller").simplyScroll({orientation: 'vertical', customClass: 'vert'});
+                                    });
+                                })(jQuery);
+                            </script>
+
+                            <link href="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.css" rel='stylesheet' type='text/css'>
+                            <script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/flipclock/0.7.8/flipclock.min.js"></script>
+
+                            <div class="display_title">
+
+                                <div class="date_time">
+                                    <div class="clock"></div>
+                                </div>
+
+                                <script type="text/javascript">
+                                    var clock;
+
+                                    $(document).ready(function () {
+                                        clock = $('.clock').FlipClock({
+                                            clockFace: 'TwelveHourClock'
+                                        });
+                                    });
+                                </script>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+
+
+                            <div class="display_head">
+                                <div class="head_col1">Flight</div>
+                                <div class="head_col2">From</div>
+                                <div class="head_col3">To</div>
+                                <div class="head_col4">Departure</div>
+                                <div class="head_col4">Arrival</div>
+                                <div class="head_col5">Status</div>
+                            </div>
+                            <ul id="scroller">
+                                <?php
+                                if (!is_null($page_data)) {
+                                $i = 1;
+                                foreach ($page_data as $value) {
+                                $i++;
+
+                                $from_to = explode('to', $value->name);
+                                ?>
+                                <li class="<?php
+                                if ($i % 2 == 0)
+                                    echo 'flight_even';
+                                else
+                                    echo 'flight_odd'
+                                ?>">
+                                    <div class="col1">{{$value->flight}}</div>
+                                    <div class="col2">{{$from_to[0]}}</div>
+                                    <div class="col3">{{$from_to[1]}}</div>
+                                    <div class="col4">{{$value->dep_time}}</div>
+                                    <div class="col4">{{$value->arr_time}}</div>
+                                    <div class="col5"><?php if(!$value->flight_status) echo 'On Time';else echo $value->flight_status;?></div>
+                                </li>
+                                <?php
+                                }
+                                }
+                                ?>
+                            </ul>
+
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+        </div>
+    </div>
+    <!--=========================================End Main Body================================================-->
+@stop

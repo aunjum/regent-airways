@@ -1,0 +1,127 @@
+
+.sidebar-max input{
+    pointer-events: none;
+}
+.booking-lst-stp{background-color: transparent ; font-size: 12px;}
+.booking-lst-stp .table_head{
+    background-color: #c22927;
+    color:#fff;
+}
+.booking-lst-stp .table_head td{text-align: center;}
+.booking-lst-stp .bk_form_container{
+    width: 100%;
+    box-sizing: border-box;
+    boder:1px solid black;
+}
+.booking-lst-stp .bk_form_container form,
+.booking-lst-stp .bk_form_container {overflow: hidden;}
+.booking-lst-stp input{height: auto}
+.dayNights{
+    width: 100%;
+    display: block;
+    overflow: hidden;
+}
+.dayNights label{
+    width: 50%;
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-right: 5px;
+}
+.dayNights label:last-child{padding-right: 0}
+.dayNights label input{width: 90%}
+.formrow{
+    width: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.formrow .formcol,
+.formrow .formcol_33,
+.formrow .formcol_60,
+.formrow .formcol_20{
+    display: inline-block;
+    box-sizing: border-box;
+    float: left;
+}
+.formrow .formcol{ width: 50%;}
+.formrow .formcol_33{ width: 33.33% }
+.formrow .formcol_60{ width: 60% }
+.formrow .formcol_20{ width: 20% }
+.formcol input,.formcol_33 input,
+.formcol select,.formcol_33 select,
+.formcol_60 input,
+.formcol_20 input{width: 90%}
+.padright{padding-right: 5px}
+.padleft{padding-left: 5px}
+span.doc input{
+    margin-left: 10px;
+    margin-top: 0px;
+}
+
+#pagesDatatable tbody tr td {
+    background: #F5F5F5;
+}
+
+.summary_hideable_item {
+    display: none;
+}
+.summaryArea label {
+    font-weight: bold;
+}
+@media (min-width: 1200px){
+    .booking-lst-stp .span3{margin-left: 0}
+    .sidebar-mob .formcol{width: 100%}
+    .sidebar-mob .padleft {padding-left: 0}
+    .sidebar-max .formcol_20{width: 21%}
+    .sidebar-max .formcol_60{width: 56%}
+
+}
+@media only screen and (max-width: 480px) {
+    .main_oveflow_hdn{
+        width: 100%;
+        overflow: hidden;
+    }
+    .booking-lst-stp{margin-top: 30px}
+    #pagesDatatable{
+        display: block;
+        overflow: scroll;
+        overflow: auto;
+    }
+    body .input_full{
+        width: 100%;
+    }
+    .booking_info .formrow .formcol,
+    .booking_info .formrow .formcol_33,
+    .peresonal_info .formrow .formcol_33 {width:100%;}
+    .booking_info .formrow .padleft,
+    .peresonal_info .formrow .padleft{padding-left: 0}
+}
+@media only screen and (min-width:640px)and (max-width: 1199px) {
+    .booking-lst-stp .span7{width: 69%; margin-left: 10px;}
+    .booking-lst-stp .span3{width: 30%; }
+    .booking-lst-stp .span3, .booking-lst-stp .span7{
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+    .sidebar-mob .formcol{width: 100%}
+    .sidebar-mob .padleft {padding-left: 0}
+    .sidebar .well{padding: 19px 5px 19px 5px;}
+    .sidebar .formrow .formcol_60{width:50%}
+    .sidebar .formrow .formcol_20{width:25%}
+    .sidebar .formcol_20 input {
+        font-size: 12px;
+    }
+    .sidebar .formrow .formcol_60,.sidebar .formrow .formcol_20,
+    .booking_info input{
+        width: 100%;}
+    .booking_form_holder input{
+        font-size: 12px;}
+}
+@media only screen and (max-width: 739px) {
+    .booking_info .formcol_33{width: 100%;}
+}
+
+.peresonal_info input[type=file] {
+    line-height: 0 !important;
+}
